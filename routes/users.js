@@ -74,11 +74,15 @@ router.post('/register',upload.single('profileimage') , function(req, res, next)
   }
 
   //form validator
+  var letterNumber = /([0-9].*[a-z])|([a-z].*[0-9])/;
   req.checkBody('name','name is required').notEmpty();
   req.checkBody('email','Email is required').notEmpty();
   req.checkBody('email','email is not valid').isEmail();
   req.checkBody('username','username is required').notEmpty();
+  req.checkBody('username','Username length should be minimum 3').isLength({min:3});
   req.checkBody('password','password is required').notEmpty();
+  req.checkBody('password','password length should be minimum 5').isLength({min:5});
+  req.checkBody('password','Password must contain atleast 1 letter and atleast 1 number').matches(letterNumber);
   req.checkBody('password2','password do not match').equals(req.body.password);
 
 
@@ -103,7 +107,7 @@ User.createUser(newUser,function(err, user){
    console.log(user);
 });
 
-req.flash('sucess', 'You are now registered and can log in');
+req.flash('success', 'You are now registered and can log in');
 
 
 res.location('/');
@@ -114,7 +118,7 @@ res.redirect('/');
 
 router.get('/logout', function(req, res){
 	req.logout();
-	req.flash('sucess', 'You are now logged out')
+	req.flash('success', 'You are now logged out')
 	res.redirect('/users/login');
 });
 

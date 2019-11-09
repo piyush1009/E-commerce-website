@@ -46,7 +46,7 @@ app.use(passport.initialize());
 app.use(passport.session());   //authenticate the session.
 
 //Validators
-app.use(expressValidator({                            //????????????????????
+app.use(expressValidator({                            //????????????????????For error format
   errorFormatter: function(param, msg, value) {
       var namespace = param.split('.')
       , root    = namespace.shift()
@@ -70,10 +70,10 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.get('*',function(req,res,next){                 //??????????????????
-  res.locals.user = req.user || null;
-  next();
-});
+// app.get('*',function(req,res,next){               //to show the user object in the frontend.
+//   res.locals.user = req.user || null;
+//   next();
+// });
 
 app.use('/', index);
 app.use('/users', users);
