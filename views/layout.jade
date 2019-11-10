@@ -2,6 +2,7 @@ doctype html
 html(lang='en')
   head
     title Welcome
+    script(src='https://kit.fontawesome.com/b61284e12b.js', crossorigin='anonymous')
     link(href='/stylesheets/bootstrap.css', rel='stylesheet')
     link(href='/stylesheets/style.css', rel='stylesheet')
   body
@@ -13,7 +14,8 @@ html(lang='en')
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          a.navbar-brand(href='#') My Store
+          a.navbar-brand(href='#') My Store 
+                         i.fas.fa-store
         .navbar-collapse.collapse
           ul.nav.navbar-nav
             if user
