@@ -19,3 +19,7 @@ ul.error li{
     border-color: #ebccd1;
     list-style: none;
 }
+
+body {
+    background-image: url('/public/images/ecommerce.jpg');
+}
