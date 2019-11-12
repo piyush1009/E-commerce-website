@@ -23,3 +23,9 @@ ul.error li{
 /* body {
     background-image: url('/images/ecommerce.jpg');
 } */
+
+
+img {
+    height: 300px;
+    width: 55%;
+}
