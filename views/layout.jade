@@ -31,7 +31,8 @@ html(lang='en')
           ul.nav.navbar-nav.navbar-right
            if user
             li
-               a(href='/users/logout') Logout
+               a(href='/users/logout') Logout 
+                 i.fas.fa-sign-out-alt
     .container
      != messages()
      block content
