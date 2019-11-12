@@ -34,6 +34,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.get('*',)
+
 //Handle session
 app.use(session({
   secret:'secret',
@@ -70,10 +72,10 @@ app.use(function (req, res, next) {
   next();
 });
 
-// app.get('*',function(req,res,next){               //to show the user object in the frontend.
-//   res.locals.user = req.user || null;
-//   next();
-// });
+ app.get('*',function(req,res,next){               //to show the user object in the frontend.
+  res.locals.user = req.user || null;
+  next();
+});
 
 app.use('/', index);
 app.use('/users', users);
